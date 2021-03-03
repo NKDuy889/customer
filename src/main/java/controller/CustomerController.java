@@ -34,9 +34,8 @@ public class CustomerController {
         return new ModelAndView("view", "list", customerService.findAll());
     }
     @GetMapping("/delete/{id}")
-    public ModelAndView delete(@PathVariable int id, @ModelAttribute Customer customer) {
-        List<Customer> customers = customerService.findAll();
-        customers.remove(id);
+    public ModelAndView delete(@PathVariable int id) {
+        customerService.removeCustomer(id);
         return new ModelAndView("redirect:/customers");
     }
     @GetMapping("/create")

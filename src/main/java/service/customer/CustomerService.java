@@ -42,6 +42,7 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public void removeCustomer(int id) {
-        customerList.remove(id);
+        Customer c = findById(id);
+        customerList.remove(c);
     }
 }
